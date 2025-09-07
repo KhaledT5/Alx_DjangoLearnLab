@@ -2,6 +2,13 @@ from django.shortcuts import render
 from django.views.generic.detail import DetailView  # exact string the checker expects
 from .models import Library
 from .models import Book
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
 
 # Function-based view
 def list_books(request):
