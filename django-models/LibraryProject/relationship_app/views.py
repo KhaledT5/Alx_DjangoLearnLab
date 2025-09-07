@@ -51,3 +51,25 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request, 'relationship_app/logout.html')
+
+# List all books
+def list_books(request):
+    books = Book.objects.all()
+    return render(request, 'relationship_app/list_books.html', {'books': books})
+
+# Registration
+def register_view(request):
+    form = UserCreationForm()
+    return render(request, 'relationship_app/register.html', {'form': form})
+
+# Login
+def login_view(request):
+    form = AuthenticationForm()
+    return render(request, 'relationship_app/login.html', {'form': form})
+
+# Logout
+@login_required
+def logout_view(request):
+    logout(request)
+    return render(request, 'relationship_app/logout.html')
+
