@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from django.views.generic.detail import DetailView
-from .models import Book, Library  # explicit import
-# If Author and Librarian are needed elsewhere, you can import them too:
-from .models import Author, Librarian
+from .models import Library
+from .models import Book
+from .models import Author, Librarian  # optional, only if you need them
+
 
 # Function-based view to list all books
 def list_books(request):
