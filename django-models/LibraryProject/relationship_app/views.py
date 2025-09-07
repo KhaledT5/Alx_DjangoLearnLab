@@ -1,6 +1,8 @@
+from django.shortcuts import render
 from django.views.generic.detail import DetailView
-from relationship_app.models import Library
-
+from .models import Book, Library  # explicit import
+# If Author and Librarian are needed elsewhere, you can import them too:
+from .models import Author, Librarian
 
 # Function-based view to list all books
 def list_books(request):
@@ -10,5 +12,5 @@ def list_books(request):
 # Class-based view for library detail
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'library_detail.html'
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
