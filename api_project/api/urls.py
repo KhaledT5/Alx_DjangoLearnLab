@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import BookList
 
 urlpatterns = [
-    path('', views.placeholder, name='api-placeholder'),
+    path('books/', BookList.as_view(), name='book-list'),
 ]

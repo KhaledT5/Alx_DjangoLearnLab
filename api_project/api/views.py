@@ -1,4 +1,7 @@
-from django.shortcuts import HttpResponse
+from rest_framework import generics
+from api.models import Book
+from .serializers import BookSerializer
 
-def placeholder(request):
-    return HttpResponse("API app placeholder")
+class BookList(generics.ListAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
